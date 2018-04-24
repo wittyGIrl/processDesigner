@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="title" content="流程设计器">
+  <meta name="keyword" content="流程，流程设计器">
+  <meta name="description" content="便捷的流程设计器">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>流程设计器</title>
+  <link href="../theme/default/css/default.all.css" type="text/css" rel="stylesheet" />
+  <link rel="stylesheet" href="../lib/jsoneditor/jsonEditor.css"/>
+
+	<style>
+		.validatebox-text{
+			width: 140px;
+		}
+
+    .window {
+        padding: 0px;
+        border-width: 1px;
+    }
+    .messager-body.panel-body{
+        background-color: rgb(242, 247, 247);
+        font-size: 14px;
+    }
+	</style>
+</head>
+
+
+<body>
+  <div id="content-wrapper">
+
+    <div id="panel"></div>
+
+    <div id="witdesigner" onselectstart="return false">
+
+    </div>
+  </div>
+  <div id = "nav">
+  </div>
+</body>
+<script src="zh-cn.js"></script>
+<script src="../lib/jquery-2.1.1.js"></script>
+<script src="../release/lib.js"></script>
+<script src="../release/witdesigner.js"></script>
+
+<script src="config.js" charset="utf-8"></script>
+
+<!--脑图启动代码-->
+<script>
+
+/* global km:true, ZeroClipboard:true, zip:true */
+/* jshint browser:true */
+
+    //easyloader.theme = 'gray';
+    var propertyName;
+
+    $(function () {
+        Designer = witdesigner.getDesigner('witdesigner', window.KITYMINDER_CONFIG);
+        Designer.initUI();
+        propertyName = Designer.getLang('node.propertyName');
+        if(witdesignerUI){
+           store.clear();
+            var proc = witdesignerUI.Store.get('process');
+            if(proc){
+                Designer.importJson(proc);
+            }
+        }
+    });
+</script>
+
+</html>

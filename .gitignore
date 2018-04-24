@@ -1,0 +1,10 @@
+.idea
+.DS_Store
+*.ini
+*.sublime-project
+*.sublime-workspace
+/dist/
+/release/
+node_modules/
+_drafts/
+temp/
